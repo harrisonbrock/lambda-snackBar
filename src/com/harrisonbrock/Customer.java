@@ -41,4 +41,17 @@ public class Customer {
     public void setCashOnHand(double cashOnHand) {
         this.cashOnHand = cashOnHand;
     }
+
+    public void buyItems(int quantity, Snack snack) {
+        double total = quantity * snack.getCost();
+
+        if ( total <= this.cashOnHand) {
+            this.cashOnHand = this.cashOnHand - total;
+            snack.buyQuantity(quantity);
+        }
+    }
+
+    public void addCash(double amount) {
+        this.cashOnHand = this.cashOnHand + amount;
+    }
 }
